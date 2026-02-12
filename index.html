@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主播与观众送礼情境下关系变化 - 观众前置调研问卷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .survey-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 25px 0 15px;
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        .statement {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        .question {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        .option {
+            margin: 10px 0 10px 20px;
+            cursor: pointer;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        input[type="text"], textarea {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-left: 5px;
+            outline: none;
+        }
+        input[type="text"] {
+            width: 200px;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: #3498db;
+        }
+        .skip-question {
+            display: none;
+        }
+        .btn-group {
+            text-align: center;
+            margin-top: 40px;
+        }
+        button {
+            padding: 10px 30px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        #submit-btn {
+            background-color: #2ecc71;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #submit-btn:hover {
+            background-color: #27ae60;
+        }
+        #reset-btn {
+            background-color: #95a5a6;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #reset-btn:hover {
+            background-color: #7f8c8d;
+        }
+        .thanks {
+            text-align: center;
+            padding: 50px 0;
+            display: none;
+        }
+        .thanks h2 {
+            border: none;
+            text-align: center;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .survey-container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+            .question {
+                font-size: 15px;
+            }
+            input[type="text"] {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 核心修正：form的action改为你的仓库地址，name用普通格式 -->
+    <form action="https://github.com/KongWeijun-real/For-viewer/issues/new" method="get" class="survey-form">
+        <div class="survey-container">
+            <h1>主播与观众送礼情境下关系变化 - 观众前置调研问卷</h1>
+            
+            <!-- 隐藏字段：固定Issue标题 -->
+            <input type="hidden" name="title" value="主播送礼调研-问卷填写结果">
+            
+            <!-- 关键：用一个隐藏的body字段，通过JS拼接所有答案（解决正文为空的核心） -->
+            <input type="hidden" name="body" id="form-body" value="">
+
+            <!-- 一、知情同意与隐私保护声明 -->
+            <h2>一、知情同意与隐私保护声明</h2>
+            <div class="statement">
+                1. 本问卷及后续访谈数据仅用于 “主播与观众送礼情境下关系变化” 的学术研究，严格遵循保密原则，所有个人信息将进行匿名化处理，仅以整体统计形式呈现，不会泄露给任何第三方机构或个人。<br>
+                2. 您有权选择是否参与本次调研及后续访谈，亦可在任何阶段主动退出，且无需承担任何责任，已填写的信息将根据您的要求删除。<br>
+                3. 针对后续访谈，您可自主选择是否同意录音（录音仅用于资料整理，整理后将严格保密并在研究结束后销毁）；访谈过程中，若遇到不愿回答的问题，可直接说明，无需勉强回应。<br>
+                4. 填写并提交本问卷即表示您已充分了解以上声明内容，并自愿参与本次研究。
+            </div>
+
+            <!-- 二、基本信息收集 -->
+            <h2>二、基本信息收集</h2>
+            <div class="question" id="q1">
+                1. 您的性别：
+                <div class="option"><input type="radio" name="gender" value="男" required> 男</div>
+                <div class="option"><input type="radio" name="gender" value="女"> 女</div>
+                <div class="option"><input type="radio" name="gender" value="其他"> 其他</div>
+                <div class="option"><input type="radio" name="gender" value="不愿透露"> 不愿透露</div>
+            </div>
+            <div class="question" id="q2">
+                2. 您是否有观看网络直播的习惯？
+                <div class="option"><input type="radio" name="watch_live" value="是" onchange="showQ3(this)" required> 是</div>
+                <div class="option"><input type="radio" name="watch_live" value="否" onchange="endSurvey(this)"> 否</div>
+            </div>
+            <div class="question" id="q3">
+                3. 您观看网络直播的频率：
+                <div class="option"><input type="radio" name="watch_frequency" value="每天"> 每天</div>
+                <div class="option"><input type="radio" name="watch_frequency" value="每周3-5次"> 每周 3-5 次</div>
+                <div class="option"><input type="radio" name="watch_frequency" value="每周1-2次"> 每周 1-2 次</div>
+                <div class="option"><input type="radio" name="watch_frequency" value="每月1-3次"> 每月 1-3 次</div>
+                <div class="option"><input type="radio" name="watch_frequency" value="偶尔观看"> 偶尔观看（低于每月 1 次）</div>
+            </div>
+            <div class="question" id="q4">
+                4. 您主要观看的直播类型（可多选）：
+                <div class="option"><input type="checkbox" name="live_type" value="游戏直播"> 游戏直播</div>
+                <div class="option"><input type="checkbox" name="live_type" value="娱乐表演"> 娱乐表演（唱歌、脱口秀等）</div>
+                <div class="option"><input type="checkbox" name="live_type" value="生活分享"> 生活分享（美食、旅行等）</div>
+                <div class="option"><input type="checkbox" name="live_type" value="知识科普"> 知识科普</div>
+                <div class="option"><input type="checkbox" name="live_type" value="电商带货"> 电商带货</div>
+                <div class="option"><input type="checkbox" name="live_type" value="其他"> 其他 <input type="text" name="live_type_other" placeholder="请注明"></div>
+            </div>
+
+            <!-- 三、送礼行为调研与隐私偏好收集 -->
+            <h2>三、送礼行为调研与隐私偏好收集</h2>
+            <div class="question" id="q5">
+                1. 您是否有过给主播送礼（包括虚拟礼物、实物礼物等）的经历？
+                <div class="option"><input type="radio" name="send_gift" value="是" onchange="showGiftQ(this)" required> 是</div>
+                <div class="option"><input type="radio" name="send_gift" value="否" onchange="hideGiftQ(this)" required> 否</div>
+            </div>
+
+            <!-- 送礼者专属问题 -->
+            <div class="gift-questions">
+                <div class="question" id="q6">
+                    2. 您给主播送礼的频率：
+                    <div class="option"><input type="radio" name="gift_frequency" value="每次观看都会送"> 每次观看都会送</div>
+                    <div class="option"><input type="radio" name="gift_frequency" value="经常送"> 经常送（多数观看场次）</div>
+                    <div class="option"><input type="radio" name="gift_frequency" value="偶尔送"> 偶尔送（少数观看场次）</div>
+                    <div class="option"><input type="radio" name="gift_frequency" value="仅送过1-2次"> 仅送过 1-2 次</div>
+                </div>
+                <div class="question" id="q7">
+                    3. 您送礼的主播类型（可多选）：
+                    <div class="option"><input type="checkbox" name="gift_host_type" value="头部大主播"> 头部大主播（粉丝量 100 万以上）</div>
+                    <div class="option"><input type="checkbox" name="gift_host_type" value="腰部主播"> 腰部主播（粉丝量 10-100 万）</div>
+                    <div class="option"><input type="checkbox" name="gift_host_type" value="尾部小主播"> 尾部小主播（粉丝量 10 万以下）</div>
+                    <div class="option"><input type="checkbox" name="gift_host_type" value="仅固定1-2位"> 仅固定 1-2 位主播</div>
+                    <div class="option"><input type="checkbox" name="gift_host_type" value="随机不同主播"> 随机给不同主播送礼</div>
+                </div>
+                <div class="question" id="q8">
+                    4. 您选择给主播送礼的主要原因（可多选）：
+                    <div class="option"><input type="checkbox" name="gift_reason" value="认可内容/才华"> 认可主播的内容 / 才华</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="希望获得关注"> 希望获得主播的关注（如念 ID、回应）</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="融入直播间氛围"> 融入直播间氛围，与其他观众互动</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="支持职业发展"> 支持主播的职业发展</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="主播主动引导"> 主播主动引导送礼</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="直播间福利活动"> 直播间有抽奖、福利等回馈活动</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="情感认同"> 对主播产生了情感认同（如觉得亲切、励志）</div>
+                    <div class="option"><input type="checkbox" name="gift_reason" value="其他"> 其他 <input type="text" name="gift_reason_other" placeholder="请注明"></div>
+                </div>
+                <div class="question" id="q9">
+                    5. 送礼后，您感觉与主播的互动发生了哪些变化（可多选，若未变化请选 “无变化”）：
+                    <div class="option"><input type="checkbox" name="gift_interact_change" value="主播更频繁回应"> 主播更频繁地回应我（如念 ID、回答问题）</div>
+                    <div class="option"><input type="checkbox" name="gift_interact_change" value="互动内容更深入"> 互动内容更深入（如私下留言被回复）</div>
+                    <div class="option"><input type="checkbox" name="gift_interact_change" value="获得直播间特殊身份"> 获得了直播间特殊身份（如房管、粉丝牌等级提升）</div>
+                    <div class="option"><input type="checkbox" name="gift_interact_change" value="无变化"> 与主播的互动无明显变化</div>
+                    <div class="option"><input type="checkbox" name="gift_interact_change" value="其他"> 其他 <input type="text" name="gift_interact_other" placeholder="请注明"></div>
+                </div>
+                <div class="question" id="q10">
+                    6. 您认为送礼对您与主播的关系产生了怎样的影响？
+                    <div class="option"><input type="radio" name="gift_relation_impact" value="陌生到熟悉支持者"> 从 “陌生观众” 变成了 “熟悉的支持者”</div>
+                    <div class="option"><input type="radio" name="gift_relation_impact" value="产生情感联结"> 产生了一定的情感联结（如觉得有亲近感）</div>
+                    <div class="option"><input type="radio" name="gift_relation_impact" value="单纯消费与提供关系"> 只是单纯的 “消费者与内容提供者” 关系，无实质变化</div>
+                    <div class="option"><input type="radio" name="gift_relation_impact" value="其他"> 其他 <input type="text" name="gift_relation_other" placeholder="请注明"></div>
+                </div>
+            </div>
+
+            <!-- 未送礼者问题 -->
+            <div class="question skip-question" id="q11">
+                7. 若您未给主播送过礼，不送礼的主要原因（可多选）：
+                <div class="option"><input type="checkbox" name="no_gift_reason" value="经济条件不允许"> 经济条件不允许</div>
+                <div class="option"><input type="checkbox" name="no_gift_reason" value="觉得没必要"> 觉得没必要，仅想单纯观看内容</div>
+                <div class="option"><input type="checkbox" name="no_gift_reason" value="不认同送礼换关注"> 不认同 “送礼换关注” 的模式</div>
+                <div class="option"><input type="checkbox" name="no_gift_reason" value="担心无预期回应"> 担心送礼后无法获得预期回应</div>
+                <div class="option"><input type="checkbox" name="no_gift_reason" value="其他"> 其他 <input type="text" name="no_gift_reason_other" placeholder="请注明"></div>
+            </div>
+
+            <!-- 所有人必答 -->
+            <div class="question" id="q12">
+                8. 您认为观众给主播送礼后，二者的关系可能发生哪些变化（可多选，无论是否送礼均需回答）：
+                <div class="option"><input type="checkbox" name="relation_change" value="主播更关注送礼观众" required> 主播会更关注送礼的观众</div>
+                <div class="option"><input type="checkbox" name="relation_change" value="互动频率增加"> 二者互动频率增加</div>
+                <div class="option"><input type="checkbox" name="relation_change" value="关系更亲近"> 关系会变得更亲近（如形成 “粉丝 - 主播” 的特殊联结）</div>
+                <div class="option"><input type="checkbox" name="relation_change" value="本质还是商业关系"> 本质还是商业关系，无真实情感联结</div>
+                <div class="option"><input type="checkbox" name="relation_change" value="出现区别对待"> 可能出现 “区别对待”（主播更偏向送礼观众）</div>
+                <div class="option"><input type="checkbox" name="relation_change" value="没什么变化"> 没什么变化</div>
+                <div class="option"><input type="checkbox" name="relation_change" value="其他"> 其他 <input type="text" name="relation_change_other" placeholder="请注明"></div>
+            </div>
+            <div class="question" id="q13">
+                9. 您是否愿意在后续访谈中公开自己的真实姓名？
+                <div class="option"><input type="radio" name="real_name" value="愿意" required> 愿意</div>
+                <div class="option"><input type="radio" name="real_name" value="不愿意"> 不愿意（将使用匿名或化名）</div>
+            </div>
+            <div class="question" id="q14">
+                10. 您是否同意后续访谈进行录音？
+                <div class="option"><input type="radio" name="record_interview" value="同意" required> 同意</div>
+                <div class="option"><input type="radio" name="record_interview" value="不同意"> 不同意（将以文字记录为主）</div>
+            </div>
+            <div class="question" id="q15">
+                11. 您对本次研究（主播与观众送礼关系）是否有其他想补充的观点或疑问？<br>
+                <textarea name="other_opinion" rows="4" cols="80" style="margin-top:10px; padding:10px; border:1px solid #ddd; border-radius:4px; outline:none; resize:none" placeholder="请输入您的观点或疑问..."></textarea>
+            </div>
+
+            <!-- 提交重置按钮 -->
+            <div class="btn-group">
+                <button type="button" id="submit-btn" onclick="submitSurvey()">提交问卷</button>
+                <button type="reset" id="reset-btn">重置问卷</button>
+            </div>
+
+            <!-- 感谢页 -->
+            <div class="thanks" id="thanks-page">
+                <h2>感谢您的参与！</h2>
+                <p>您的回答将为我们的研究提供重要支持。</p>
+                <p>若您同意参与后续访谈，我们将尽快与您联系；若您仅参与问卷调研，再次感谢您的支持与配合！</p>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // 初始化隐藏送礼问题和未送礼问题
+        document.querySelector('.gift-questions').style.display = 'none';
+        document.querySelector('.skip-question').style.display = 'none';
+
+        // 有观看直播习惯显示第3题
+        function showQ3(obj) {
+            if (obj.value === '是') {
+                document.getElementById('q3').style.display = 'block';
+            }
+        }
+
+        // 无观看直播习惯结束问卷
+        function endSurvey(obj) {
+            if (obj.value === '否') {
+                document.querySelectorAll('.question').forEach(item => item.style.display = 'none');
+                document.querySelector('.btn-group').style.display = 'none';
+                document.getElementById('thanks-page').style.display = 'block';
+            }
+        }
+
+        // 有送礼经历显示送礼问题
+        function showGiftQ(obj) {
+            if (obj.value === '是') {
+                document.querySelector('.gift-questions').style.display = 'block';
+                document.querySelector('.skip-question').style.display = 'none';
+            }
+        }
+
+        // 无送礼经历显示未送礼问题
+        function hideGiftQ(obj) {
+            if (obj.value === '否') {
+                document.querySelector('.gift-questions').style.display = 'none';
+                document.querySelector('.skip-question').style.display = 'block';
+            }
+        }
+
+        // 核心修正：拼接所有答案到body字段，确保Issue正文有内容
+        function submitSurvey() {
+            // 1. 基础验证
+            const requiredRadios = document.querySelectorAll('input[type="radio"][required]');
+            const requiredChecks = document.querySelectorAll('input[type="checkbox"][required]');
+            let isComplete = true;
+
+            // 验证必选单选框
+            requiredRadios.forEach(radio => {
+                const name = radio.name;
+                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                if (!checked) {
+                    isComplete = false;
+                    alert(`请完成【${radio.closest('.question').innerText.split('。')[0]}】的作答`);
+                    radio.scrollIntoView({ behavior: 'smooth' });
+                    return;
+                }
+            });
+
+            // 验证必选复选框
+            requiredChecks.forEach(check => {
+                const name = check.name;
+                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                if (!checked) {
+                    isComplete = false;
+                    alert(`请完成【${check.closest('.question').innerText.split('。')[0]}】的作答`);
+                    check.scrollIntoView({ behavior: 'smooth' });
+                    return;
+                }
+            });
+
+            if (!isComplete) return;
+
+            // 2. 拼接所有答案成清晰的文本格式（核心步骤）
+            let bodyContent = "### 问卷填写结果\n\n";
+            
+            // 基本信息
+            bodyContent += "#### 一、基本信息\n";
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || '未填写';
+            bodyContent += `1. 性别：${gender}\n`;
+            
+            const watchLive = document.querySelector('input[name="watch_live"]:checked')?.value || '未填写';
+            bodyContent += `2. 是否观看直播：${watchLive}\n`;
+            
+            if (watchLive === '是') {
+                const watchFrequency = document.querySelector('input[name="watch_frequency"]:checked')?.value || '未填写';
+                bodyContent += `3. 直播观看频率：${watchFrequency}\n`;
+                
+                const liveType = Array.from(document.querySelectorAll('input[name="live_type"]:checked')).map(el => el.value).join('、') || '未填写';
+                const liveTypeOther = document.querySelector('input[name="live_type_other"]')?.value || '';
+                bodyContent += `4. 主要观看直播类型：${liveType}${liveTypeOther ? '（其他：'+liveTypeOther+'）' : ''}\n`;
+            }
+
+            // 送礼行为
+            bodyContent += "\n#### 二、送礼行为调研\n";
+            const sendGift = document.querySelector('input[name="send_gift"]:checked')?.value || '未填写';
+            bodyContent += `1. 是否给主播送礼：${sendGift}\n`;
+            
+            if (sendGift === '是') {
+                const giftFrequency = document.querySelector('input[name="gift_frequency"]:checked')?.value || '未填写';
+                bodyContent += `2. 送礼频率：${giftFrequency}\n`;
+                
+                const giftHostType = Array.from(document.querySelectorAll('input[name="gift_host_type"]:checked')).map(el => el.value).join('、') || '未填写';
+                bodyContent += `3. 送礼的主播类型：${giftHostType}\n`;
+                
+                const giftReason = Array.from(document.querySelectorAll('input[name="gift_reason"]:checked')).map(el => el.value).join('、') || '未填写';
+                const giftReasonOther = document.querySelector('input[name="gift_reason_other"]')?.value || '';
+                bodyContent += `4. 送礼主要原因：${giftReason}${giftReasonOther ? '（其他：'+giftReasonOther+'）' : ''}\n`;
+                
+                const giftInteractChange = Array.from(document.querySelectorAll('input[name="gift_interact_change"]:checked')).map(el => el.value).join('、') || '未填写';
+                const giftInteractOther = document.querySelector('input[name="gift_interact_other"]')?.value || '';
+                bodyContent += `5. 送礼后互动变化：${giftInteractChange}${giftInteractOther ? '（其他：'+giftInteractOther+'）' : ''}\n`;
+                
+                const giftRelationImpact = document.querySelector('input[name="gift_relation_impact"]:checked')?.value || '未填写';
+                const giftRelationOther = document.querySelector('input[name="gift_relation_other"]')?.value || '';
+                bodyContent += `6. 送礼对关系的影响：${giftRelationImpact}${giftRelationOther ? '（其他：'+giftRelationOther+'）' : ''}\n`;
+            } else {
+                const noGiftReason = Array.from(document.querySelectorAll('input[name="no_gift_reason"]:checked')).map(el => el.value).join('、') || '未填写';
+                const noGiftReasonOther = document.querySelector('input[name="no_gift_reason_other"]')?.value || '';
+                bodyContent += `2. 不送礼主要原因：${noGiftReason}${noGiftReasonOther ? '（其他：'+noGiftReasonOther+'）' : ''}\n`;
+            }
+
+            // 通用问题
+            bodyContent += "\n#### 三、通用问题\n";
+            const relationChange = Array.from(document.querySelectorAll('input[name="relation_change"]:checked')).map(el => el.value).join('、') || '未填写';
+            const relationChangeOther = document.querySelector('input[name="relation_change_other"]')?.value || '';
+            bodyContent += `1. 送礼后二者关系变化：${relationChange}${relationChangeOther ? '（其他：'+relationChangeOther+'）' : ''}\n`;
+            
+            const realName = document.querySelector('input[name="real_name"]:checked')?.value || '未填写';
+            bodyContent += `2. 是否愿意公开真实姓名：${realName}\n`;
+            
+            const recordInterview = document.querySelector('input[name="record_interview"]:checked')?.value || '未填写';
+            bodyContent += `3. 是否同意访谈录音：${recordInterview}\n`;
+            
+            const otherOpinion = document.querySelector('textarea[name="other_opinion"]')?.value || '无补充';
+            bodyContent += `4. 其他补充观点/疑问：${otherOpinion}\n`;
+
+            // 3. 将拼接好的内容赋值给隐藏的body字段
+            document.getElementById('form-body').value = bodyContent;
+
+            // 4. 提交表单到GitHub Issues
+            document.querySelector('.survey-form').submit();
+            alert('问卷验证通过，即将跳转到GitHub提交页，点击「Submit new issue」即可保存结果！');
+        }
+    </script>
+</body>
+</html>
